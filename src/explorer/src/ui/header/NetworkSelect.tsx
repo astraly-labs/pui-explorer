@@ -79,56 +79,6 @@ function SelectableNetwork({ state, children, onClick, ...props }: SelectableNet
 	);
 }
 
-const CustomRPCSchema = z.object({
-	url: z.string().url(),
-});
-
-function CustomRPCInput({
-	value,
-	onChange,
-}: {
-	value: string;
-	onChange(networkUrl: string): void;
-}) {
-	const { register, handleSubmit, formState } = useZodForm({
-		schema: CustomRPCSchema,
-		mode: "all",
-		defaultValues: {
-			url: value,
-		},
-	});
-
-	const { errors, isDirty, isValid } = formState;
-
-	return (
-		<form
-			onSubmit={handleSubmit((values) => {
-				onChange(values.url);
-			})}
-			className="relative flex items-center rounded-md"
-		>
-			<input
-				{...register("url")}
-				type="text"
-				className={clsx(
-					"block w-full rounded-md border p-3 pr-16 shadow-sm outline-none",
-					errors.url ? "border-issue-dark text-issue-dark" : "border-gray-65 text-gray-90",
-				)}
-			/>
-
-			<div className="absolute inset-y-0 right-0 flex flex-col justify-center px-3">
-				<button
-					disabled={!isDirty || !isValid}
-					type="submit"
-					className="flex items-center justify-center rounded-full bg-gray-90 px-2 py-1 text-captionSmall font-semibold uppercase text-white transition disabled:bg-gray-45 disabled:text-gray-65"
-				>
-					Save
-				</button>
-			</div>
-		</form>
-	);
-}
-
 function NetworkVersion({
 	label,
 	version,
@@ -173,24 +123,6 @@ function NetworkSelectPanel({ networks, onChange, value }: Omit<NetworkSelectPro
 					{network.label}
 				</SelectableNetwork>
 			))}
-
-			<SelectableNetwork
-				state={
-					isCustomNetwork
-						? NetworkState.SELECTED
-						: customOpen
-						? NetworkState.PENDING
-						: NetworkState.UNSELECTED
-				}
-				onClick={() => setCustomOpen(true)}
-			>
-				Custom RPC URL
-				{customOpen && (
-					<div className="mt-3">
-						<CustomRPCInput value={isCustomNetwork ? value : ""} onChange={onChange} />
-					</div>
-				)}
-			</SelectableNetwork>
 		</>
 	);
 }

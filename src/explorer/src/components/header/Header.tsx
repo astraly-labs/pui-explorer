@@ -38,7 +38,6 @@ function Header() {
 				</LinkWithQuery>
 				<div className="flex w-full gap-2">
 					<div className="flex-1">
-						<Search />
 					</div>
 					<NetworkSelect />
 				</div>
