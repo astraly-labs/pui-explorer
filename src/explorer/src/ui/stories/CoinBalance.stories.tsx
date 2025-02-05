@@ -15,7 +15,7 @@ export default {
 			<QueryClientProvider client={new QueryClient()}>
 				<SuiClientProvider
 					networks={NetworkConfigs}
-					defaultNetwork={Network.LOCAL}
+					defaultNetwork={Network.DEVNET}
 					createClient={createSuiClient}
 				>
 					<Story />

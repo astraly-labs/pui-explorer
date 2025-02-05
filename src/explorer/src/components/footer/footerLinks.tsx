@@ -16,19 +16,19 @@ export type FooterItems = FooterItem[];
 export const footerLinks = [
 	{
 		title: "About",
-		href: "https://polymedia.app",
+		href: "https://www.pragma.build/",
 	},
 	{
 		title: "GitHub",
-		href: "https://github.com/juzybits/polymedia-explorer",
+		href: "https://github.com/astraly-labs/",
 	},
 	{
 		title: "Twitter",
-		href: "https://twitter.com/polymedia_app",
+		href: "https://x.com/PragmaOracle",
 	},
 	{
 		title: "Discord",
-		href: "https://discord.gg/DsxqP88EQp",
+		href: "https://discord.gg/M9aRZtZHU7",
 	},
 ];
 

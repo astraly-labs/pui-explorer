@@ -32,7 +32,7 @@ export function PageLayout({ gradient, content, loading, isError }: PageLayoutPr
 	const [headerHeight] = useElementDimensions(headerRef, DEFAULT_HEADER_HEIGHT);
 
 	const networkDegradeBannerCopy =
-		network === String(Network.TESTNET)
+		network === String(Network.DEVNET)
 			? "Sui Explorer (Testnet) is currently under-going maintenance. Some data may be incorrect or missing."
 			: "The explorer is running slower than usual. We're working to fix the issue and appreciate your patience.";
 
